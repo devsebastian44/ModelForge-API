@@ -38,9 +38,12 @@ ENV/
 .env.local
 
 # ML Models and Data
-storage/
+data/
 *.pkl
 *.joblib
+*.h5
+*.onnx
+models/
 
 # Logs
 *.log
