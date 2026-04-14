@@ -1,7 +1,7 @@
 """Tests para endpoints de entrenamiento"""
 import pytest
 from fastapi.testclient import TestClient
-from app.main import app
+from src.main import app
 
 
 client = TestClient(app)
@@ -77,6 +77,7 @@ def test_train_clustering_model():
             {"x": 8, "y": 2},
             {"x": 10, "y": 2},
             {"x": 9, "y": 3},
+            {"x": 10, "y": 1},
         ],
         "problem_type": "clustering",
         "algorithm": "kmeans",
