@@ -81,7 +81,7 @@ class MetricsService:
             try:
                 metrics.silhouette_score = float(silhouette_score(X, labels))
             except Exception as e:
-                logger.warning(f"Error calculating metric {metric_name}: {e}")
+                logger.warning(f"Error calculating silhouette_score: {e}")
         
         # Inertia (solo para K-Means)
         if hasattr(model, 'inertia_'):
