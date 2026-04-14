@@ -6,15 +6,15 @@ from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.cluster import KMeans
 
-from app.models.schemas import (
+from src.models.schemas import (
     TrainingRequest, TrainingResponse, PredictionRequest, 
     PredictionResponse, ProblemType, Algorithm, MetricsResponse
 )
-from app.services.data_processor import DataProcessor
-from app.services.metrics_service import MetricsService
-from app.services.model_manager import ModelManager
-from app.core.exceptions import TrainingError, PredictionError
-from app.config import get_settings
+from src.services.data_processor import DataProcessor
+from src.services.metrics_service import MetricsService
+from src.services.model_manager import ModelManager
+from src.core.exceptions import MLAPIException, TrainingError, PredictionError
+from src.config import get_settings
 
 
 class MLService:
@@ -34,13 +34,18 @@ class MLService:
     ) -> Any:
         """Instancia el modelo según el algoritmo"""
         
-        # Parámetros por defecto
-        default_params = {
-            "random_state": self.settings.RANDOM_STATE
-        }
+        # Parámetros base del modelo
+        params = {**hyperparameters}
         
-        # Merge con hiperparámetros del usuario
-        params = {**default_params, **hyperparameters}
+        # Agregar random_state solo si es soportado por el algoritmo
+        algorithms_with_rs = [
+            Algorithm.LOGISTIC_REGRESSION, 
+            Algorithm.RANDOM_FOREST, 
+            Algorithm.KMEANS
+        ]
+        
+        if algorithm in algorithms_with_rs and "random_state" not in params:
+            params["random_state"] = self.settings.RANDOM_STATE
         
         model_map = {
             Algorithm.LINEAR_REGRESSION: LinearRegression,
@@ -139,6 +144,8 @@ class MLService:
                 status="success"
             )
             
+        except MLAPIException:
+            raise
         except Exception as e:
             raise TrainingError(str(e))
     
@@ -178,5 +185,7 @@ class MLService:
                 status="success"
             )
             
+        except MLAPIException:
+            raise
         except Exception as e:
             raise PredictionError(str(e))

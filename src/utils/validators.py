@@ -1,6 +1,6 @@
 """Validadores personalizados"""
 from typing import Any, Dict, List
-from app.models.schemas import ProblemType, Algorithm
+from src.models.schemas import ProblemType, Algorithm
 
 
 def validate_algorithm_compatibility(

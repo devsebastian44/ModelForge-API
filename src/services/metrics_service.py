@@ -5,7 +5,7 @@ from sklearn.metrics import (
 )
 from typing import Any, Optional
 
-from app.models.schemas import ProblemType, MetricsResponse
+from src.models.schemas import ProblemType, MetricsResponse
 
 
 class MetricsService:

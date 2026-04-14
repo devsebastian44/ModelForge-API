@@ -3,12 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from datetime import datetime
 
-from app.config import get_settings
-from app.models.schemas import HealthResponse
-from app.core.exceptions import MLAPIException
+from src.config import get_settings
+from src.models.schemas import HealthResponse
+from src.core.exceptions import MLAPIException
 
 # Importar routers
-from app.api.v1.endpoints import training, prediction, models
+from src.api.v1.endpoints import training, prediction, models
 
 
 # Configuración
@@ -115,7 +115,7 @@ async def root():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
-        "app.main:app",
+        "src.main:app",
         host="0.0.0.0",
         port=8000,
         reload=True

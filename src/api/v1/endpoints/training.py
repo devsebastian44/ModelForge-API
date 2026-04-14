@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, status
 from typing import Annotated
 
-from app.models.schemas import TrainingRequest, TrainingResponse
-from app.services.ml_service import MLService
-from app.api.dependencies import get_ml_service
+from src.models.schemas import TrainingRequest, TrainingResponse
+from src.services.ml_service import MLService
+from src.api.dependencies import get_ml_service
 
 
 router = APIRouter(prefix="/training", tags=["Training"])

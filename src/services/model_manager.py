@@ -4,11 +4,11 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from datetime import datetime
 
-from app.models.schemas import (
+from src.models.schemas import (
     ProblemType, Algorithm, MetricsResponse, ModelInfo
 )
-from app.core.exceptions import ModelNotFoundError
-from app.config import get_settings
+from src.core.exceptions import ModelNotFoundError
+from src.config import get_settings
 
 
 class ModelManager:

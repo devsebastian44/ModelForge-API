@@ -1,4 +1,4 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict as ConfigDict
 from functools import lru_cache
 from pathlib import Path
 
@@ -16,16 +16,17 @@ class Settings(BaseSettings):
     ALLOWED_ORIGINS: list = ["*"]
     
     # Storage
-    MODEL_STORAGE_PATH: Path = Path("storage/models")
+    MODEL_STORAGE_PATH: Path = Path("data/models")
     
     # ML Config
     MAX_DATASET_ROWS: int = 100000
     RANDOM_STATE: int = 42
     TEST_SIZE: float = 0.2
     
-    class Config:
-        env_file = ".env"
-        case_sensitive = True
+    model_config = ConfigDict(
+        env_file=".env",
+        case_sensitive=True
+    )
 
 
 @lru_cache()

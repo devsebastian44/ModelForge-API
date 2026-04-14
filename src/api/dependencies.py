@@ -1,6 +1,6 @@
 from functools import lru_cache
-from app.services.ml_service import MLService
-from app.services.model_manager import ModelManager
+from src.services.ml_service import MLService
+from src.services.model_manager import ModelManager
 
 
 @lru_cache()

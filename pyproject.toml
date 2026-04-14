@@ -1,0 +1,18 @@
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --tb=short"
+testpaths = [
+    "tests",
+]
+pythonpath = [
+    ".",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311']
+include = '\.pyi?$'
+
+[tool.bandit]
+exclude_dirs = ["tests", "venv"]
+skips = ["B101"]

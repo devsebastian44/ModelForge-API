@@ -4,9 +4,9 @@ from typing import List, Dict, Any, Tuple, Optional
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-from app.models.schemas import ProblemType
-from app.core.exceptions import DatasetValidationError
-from app.config import get_settings
+from src.models.schemas import ProblemType
+from src.core.exceptions import DatasetValidationError
+from src.config import get_settings
 
 
 class DataProcessor:

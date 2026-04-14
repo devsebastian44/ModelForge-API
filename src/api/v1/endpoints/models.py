@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, status
 from typing import Annotated
 
-from app.models.schemas import ModelListResponse, ModelInfo
-from app.services.model_manager import ModelManager
-from app.api.dependencies import get_model_manager
+from src.models.schemas import ModelListResponse, ModelInfo
+from src.services.model_manager import ModelManager
+from src.api.dependencies import get_model_manager
 
 
 router = APIRouter(prefix="/models", tags=["Models"])
@@ -59,7 +59,7 @@ async def get_model_info(
     _, metadata, _ = model_manager.load_model(model_id)
     
     from datetime import datetime
-    from app.models.schemas import ProblemType, Algorithm, MetricsResponse
+    from src.models.schemas import ProblemType, Algorithm, MetricsResponse
     
     return ModelInfo(
         model_id=metadata["model_id"],

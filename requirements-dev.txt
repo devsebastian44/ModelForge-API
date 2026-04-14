@@ -1,0 +1,6 @@
+pytest>=7.0.0
+httpx>=0.23.0
+black>=23.0.0
+bandit[toml]>=1.7.0
+pip-audit>=2.7.0
+safety>=3.0.0
