@@ -43,7 +43,6 @@ data/
 *.joblib
 *.h5
 *.onnx
-models/
 
 # Logs
 *.log
