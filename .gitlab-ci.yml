@@ -24,6 +24,7 @@ lint:
 test:
   stage: test
   script:
+    - export PYTHONPATH=$PYTHONPATH:.
     - python -m pytest tests/
 
 security:bandit:

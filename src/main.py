@@ -8,7 +8,7 @@ from src.models.schemas import HealthResponse
 from src.core.exceptions import MLAPIException
 
 # Importar routers
-from src.api.v1.endpoints import training, prediction, models
+from src.api.v1.endpoints import training, prediction, inventory
 
 
 # Configuración
@@ -93,7 +93,7 @@ app.include_router(
 )
 
 app.include_router(
-    models.router,
+    inventory.router,
     prefix=settings.API_V1_PREFIX
 )
 
