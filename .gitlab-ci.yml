@@ -24,7 +24,7 @@ lint:
 test:
   stage: test
   script:
-    - pytest tests/ --import-mode=importlib
+    - python -m pytest tests/
 
 security:bandit:
   stage: security
