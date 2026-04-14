@@ -1,11 +1,14 @@
 import numpy as np
+import logging
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     mean_squared_error, r2_score, silhouette_score
 )
 from typing import Any, Optional
 
-from src.models.schemas import ProblemType, MetricsResponse
+from src.models.schemas import MetricsResponse, ProblemType
+
+logger = logging.getLogger(__name__)
 
 
 class MetricsService:
@@ -77,8 +80,8 @@ class MetricsService:
         if n_clusters > 1 and n_clusters < len(X):
             try:
                 metrics.silhouette_score = float(silhouette_score(X, labels))
-            except:
-                pass
+            except Exception as e:
+                logger.warning(f"Error calculating metric {metric_name}: {e}")
         
         # Inertia (solo para K-Means)
         if hasattr(model, 'inertia_'):

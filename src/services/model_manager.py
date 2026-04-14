@@ -1,5 +1,6 @@
 import joblib
 import json
+import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 from datetime import datetime
@@ -9,6 +10,8 @@ from src.models.schemas import (
 )
 from src.core.exceptions import ModelNotFoundError
 from src.config import get_settings
+
+logger = logging.getLogger(__name__)
 
 
 class ModelManager:
@@ -116,8 +119,8 @@ class ModelManager:
                 )
                 
                 models.append(model_info)
-            except Exception:
-                # Ignorar modelos con metadata corrupta
+            except Exception as e:
+                logger.warning(f"Metadata corrupted in {model_dir.name}: {e}")
                 continue
         
         return sorted(models, key=lambda x: x.created_at, reverse=True)
