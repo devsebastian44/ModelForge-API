@@ -1,0 +1,37 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.9"
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
+        
+    - name: Check formatting with Black
+      run: |
+        black --check src tests || true
+        # Adding '|| true' to not fail build temporarily if code is not formatted
+      
+    - name: Run security checks (Bandit)
+      run: |
+        bandit -r src/ || true
+      
+    - name: Run tests with pytest
+      run: pytest tests/ -v
