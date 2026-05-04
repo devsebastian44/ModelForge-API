@@ -270,6 +270,30 @@ sugeridas:
 
 ---
 
+## 🤝 Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## ⚠️ Ethical Usage & Disclaimer
+
+> [!IMPORTANT]
+> **This project is for educational and ethical cybersecurity purposes only.**
+> 
+> The code, datasets, and machine learning models in this repository are provided "as-is" for learning, research, and portfolio demonstration. Users must ensure that any usage of this software complies with applicable local, state, and federal laws. The authors assume no liability and are not responsible for any misuse or damage caused by this program.
+
+---
+
 ## 📄 License
 
 Este proyecto está bajo la licencia **MIT**.
