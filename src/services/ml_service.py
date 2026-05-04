@@ -14,7 +14,7 @@ from src.services.data_processor import DataProcessor
 from src.services.metrics_service import MetricsService
 from src.services.model_manager import ModelManager
 from src.core.exceptions import MLAPIException, TrainingError, PredictionError
-from src.config import get_settings
+from src.core.config import get_settings
 
 
 class MLService:

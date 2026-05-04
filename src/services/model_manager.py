@@ -9,7 +9,7 @@ from src.models.schemas import (
     ProblemType, Algorithm, MetricsResponse, ModelInfo
 )
 from src.core.exceptions import ModelNotFoundError
-from src.config import get_settings
+from src.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 

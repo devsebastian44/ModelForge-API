@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 
 from src.models.schemas import ProblemType
 from src.core.exceptions import DatasetValidationError
-from src.config import get_settings
+from src.core.config import get_settings
 
 
 class DataProcessor:

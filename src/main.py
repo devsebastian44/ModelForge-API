@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from datetime import datetime
 
-from src.config import get_settings
+from src.core.config import get_settings
 from src.models.schemas import HealthResponse
 from src.core.exceptions import MLAPIException
 
