@@ -103,13 +103,13 @@ cp .env.example .env
 ### Modo desarrollo (con auto-reload)
 
 ```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### Modo producción (multi-worker)
 
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+uvicorn src.main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
 
 Una vez iniciado el servidor, accede a:
@@ -170,7 +170,7 @@ pip install pytest pytest-cov httpx
 pytest tests/ -v
 
 # Con reporte de cobertura
-pytest tests/ --cov=app --cov-report=html
+pytest tests/ --cov=src --cov-report=html
 ```
 
 ---
@@ -180,7 +180,7 @@ pytest tests/ --cov=app --cov-report=html
 ```
 ModelForge-API/
 │
-├── app/                          # Paquete principal de la aplicación
+├── src/                          # Paquete principal de la aplicación
 │   ├── main.py                   # Entry point FastAPI: instancia de app, CORS, routers
 │   ├── config.py                 # Configuración centralizada con pydantic-settings
 │   │
