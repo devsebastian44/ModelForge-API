@@ -5,7 +5,7 @@
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML_Engine-F7931E?style=flat&logo=scikitlearn)
 ![Pydantic](https://img.shields.io/badge/Pydantic-v2-E92063?style=flat&logo=pydantic)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat&logo=opensourceinitiative)
-![Status](https://img.shields.io/badge/Status-Stable-brightgreen?style=flat)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?style=flat&logo=github-actions&logoColor=white)
 
 ---
 
@@ -240,23 +240,6 @@ ModelForge-API/
 
 ---
 
-## 🌐 Repository Architecture
-
-Este proyecto sigue una arquitectura distribuida de repositorios con separación de entornos:
-
-- **GitHub** — Presentación pública y portafolio: contiene el código fuente core sanitizado,
-  documentación técnica y estructura del proyecto lista para reproducción.
-- **GitLab** — Laboratorio de datos e IA completo: contiene pipelines CI/CD, datasets de
-  prueba, notebooks de experimentación, configuraciones de infraestructura y componentes de
-  laboratorio privados.
-
-### 🔗 Full Source Code
-
-👉 Código completo disponible en GitLab:
-[https://gitlab.com/group-data-ia-lab/ModelForge-API](https://gitlab.com/group-data-ia-lab/ModelForge-API)
-
----
-
 ## 🚀 Roadmap
 
 Basado en la arquitectura actual detectada en el código, estas son las evoluciones técnicas
@@ -275,9 +258,8 @@ sugeridas:
 - [ ] **Carga de datasets por archivo**: habilitar ingesta de CSV/Parquet directamente via
   multipart (ya soportado por `python-multipart`).
 - [ ] **Containerización con Docker**: Dockerfile y docker-compose para despliegue
-  reproducible (infraestructura disponible en GitLab).
-- [ ] **Pipeline CI/CD**: automatización de tests, linting y despliegue en cada push
-  (pipeline completo en GitLab).
+  reproducible.
+- [ ] **Pipeline CI/CD**: automatización de tests, linting y despliegue en cada push.
 - [ ] **Soporte MLflow**: integración para tracking de experimentos, comparación de runs y
   registro centralizado de modelos.
 - [ ] **Dashboard web**: interfaz visual para entrenar, explorar y comparar modelos sin
